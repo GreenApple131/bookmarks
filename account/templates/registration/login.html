@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Log-in{% endblock title %}
+
+{% block content %}
+	<h1>Log-in</h1>
+	{% if form.errors %}
+		<p>Your username or password didn`t match. Please try again.</p>
+	{% else %}
+		<p>Please, use the following form to log-in</p>
+	{% endif %}
+	<div class="login-form">
+		<form action="{% url 'login' %}" method="post">
+			{{ form.as_p }}
+			{% csrf_token %}
+			<input type="hidden" name="next" value="{{ next }}" />  {#  мы добавили скрытый элемент <input>, чтобы отправить данные под именем next (куда перенаправить пользователя после авторизации). Параметр next должен быть корректным URL’ом. Если он указан, обработчик логина Django перенаправит пользователя по этому URL’у после успешной авторизации.  #}
+			<p><input type="submit" value="Log-in"></p>
+		</form>
+		<p><a href="{% url "password_reset" %}">Forgotten your password?</a></p> 
+	</div>
+{% endblock content %}

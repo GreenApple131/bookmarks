@@ -28,12 +28,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+SITE_ID = 1
 
+# Application definition
 INSTALLED_APPS = [
+# Так как мы разместили приложение account в начале списка INSTALLED_APPS, при совпадении путей Django будет использовать наши шаблоны вместо тех, которые определены в других приложениях. 
     'account.apps.AccountConfig',
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -128,3 +130,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+# for sending email
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
+# EMAIL_HOST_PASSWORD = 'GreenApple1311'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
