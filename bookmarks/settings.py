@@ -136,9 +136,10 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 # for sending email
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
-# EMAIL_HOST_PASSWORD = 'GreenApple1311'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
+EMAIL_HOST_PASSWORD = 'GreenApple13111999'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
