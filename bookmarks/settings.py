@@ -34,8 +34,8 @@ SITE_ID = 1
 INSTALLED_APPS = [
 # Так как мы разместили приложение account в начале списка INSTALLED_APPS, при совпадении путей Django будет использовать наши шаблоны вместо тех, которые определены в других приложениях. 
     'account.apps.AccountConfig',
-    'django.contrib.auth',
     'django.contrib.admin',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -135,6 +135,13 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
+
+
 # for sending email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -143,3 +150,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
 EMAIL_HOST_PASSWORD = 'GreenApple13111999'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')   #  путь в файловой системе, где эти файлы будут храниться. Мы не задаем этот путь явно, а используем BASE_DIR, чтобы наш код был универсальным. 
+
+
