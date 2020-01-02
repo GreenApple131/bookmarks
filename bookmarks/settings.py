@@ -25,7 +25,7 @@ SECRET_KEY = 'wjqeso!&n!00xo^9)1@y_s@^r=cked&@3q4_oa4-lakdzf1u77'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 SITE_ID = 1
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
+    'social_django',
 
 ]
 
@@ -135,10 +136,17 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')   #  путь в файловой системе, где эти файлы будут храниться. Мы не задаем этот путь явно, а используем BASE_DIR, чтобы наш код был универсальным. 
+
+
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+
 ]
 
 
@@ -151,7 +159,9 @@ EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
 EMAIL_HOST_PASSWORD = 'GreenApple13111999'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')   #  путь в файловой системе, где эти файлы будут храниться. Мы не задаем этот путь явно, а используем BASE_DIR, чтобы наш код был универсальным. 
+SOCIAL_AUTH_FACEBOOK_KEY = '1748134825323005' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '2c83807416e481bab0444f336eb67ccf' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '760768033161-c7bacc8fpvckc02vgs3v89bji3m2657d.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'nbtUCSf8Y-Zy_8-uM5DsCdpo' # Google Consumer Secret
