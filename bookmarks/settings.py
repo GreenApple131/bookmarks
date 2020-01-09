@@ -156,13 +156,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dmytro.luts131@gmail.com'
-EMAIL_HOST_PASSWORD = 'GreenApple13111999'
+EMAIL_HOST_USER = 'EMAIL@gmail.com'
+EMAIL_HOST_PASSWORD = 'PASSWORD'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1748134825323005' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '2c83807416e481bab0444f336eb67ccf' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '********' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '*****' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '760768033161-c7bacc8fpvckc02vgs3v89bji3m2657d.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'nbtUCSf8Y-Zy_8-uM5DsCdpo' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '**********' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '*******' # Google Consumer Secret
